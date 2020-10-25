@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
     
     @IBOutlet weak var tableView: UITableView!
+    
     
    // @IBOutlet weak var tableView: UITableView!
     var movies = [[String:Any]]();
@@ -18,6 +20,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+     
         
     
         tableView.dataSource = self
@@ -63,9 +66,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         cell.synopsisLabel.text = synopsis
         
         
-        let baseUrl = "https://image.tmdb.org/t/p/185"
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
         let posterPath = movie["poster_path"] as! String
         let posterUrl = URL(string: baseUrl+posterPath)
+        
+        cell.posterView.af_setImage(withURL: posterUrl!)
         
         return cell
     }

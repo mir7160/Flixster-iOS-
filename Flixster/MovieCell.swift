@@ -19,6 +19,9 @@ class MovieCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        super.contentView.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1);
+        
+        //self.view.backgroundColor = UIColor(red: 22/255, green: 20/255, blue: 62/255, alpha: 1);
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
